@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_edm_api_fuite,edm_api.fuite,model_edm_api_fuite,,1,1,1,1
+access_edm_api_marche,edm_api.marche,model_edm_api_marche,,1,1,1,1
+access_edm_api_ville,edm_api.ville,model_edm_api_ville,,1,1,1,1

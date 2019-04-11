@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="edm_api.fuite_list">
+      <field name="name">Liste des Fuites</field>
+      <field name="model">edm_api.fuite</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="ville"/>
+          <field name="adresse"/>
+          <field name="marche"/>
+          <field name="lat"/>
+          <field name="lng"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edm_api.fuite_form">
+      <field name="name">Ajouter un Fuite</field>
+      <field name="model">edm_api.fuite</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="ville"/>
+            <field name="attachment_ids" widget="many2many_binary"/>
+            <field name="adresse"/>
+            <field name="marche"/>
+            <field name="lat"/>
+            <field name="lng"/>
+          </group>
+          <notebook>
+            <page string="Map">
+              <group>
+                <button string="Geolocaliser la fuite" type="object" name="clear_record_data"/>
+              </group>
+              <group>
+                <field name="map" widget="map"/>
+              </group>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="edm_api.fuite_action_window">
+      <field name="name">Fuites</field>
+      <field name="res_model">edm_api.fuite</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Edm" id="edm_api.menu_root"/>
+      <menuitem name="Fuites" id="edm_api.menu_1" parent="edm_api.menu_root" action="edm_api.fuite_action_window"/>
+
+  </data>
+</odoo>
